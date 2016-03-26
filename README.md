@@ -8,4 +8,4 @@
 
 [`teensy`](teensy) Stuff that only works on the the [teensy 3](http://www.pjrc.com/teensy/teensy31.html).
 
-[`esp8266`)(esp8266) Stuff that only works on the ESP8266, only tested on the [Adafruit HUZZAH] module.
+[`esp8266`](esp8266) Stuff that only works on the ESP8266, only tested on the [Adafruit HUZZAH](https://www.adafruit.com/products/2471) module.
