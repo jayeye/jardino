@@ -1,0 +1,2 @@
+DevNull KEYWORD1
+DevZero KEYWORD1
