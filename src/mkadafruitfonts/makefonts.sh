@@ -1,13 +1,13 @@
 #!/bin/bash
-
 # Hacked from https://github.com/adafruit/Adafruit-GFX-Library/blob/master/fontconvert/makefonts.sh
 
-family=droid
-fonts=(DroidSerif-Regular DroidSerif-Italic DroidSerif-Bold DroidSerif-BoldItalic DroidSans DroidSans-Bold DroidSansMono)
-sizes=(6 7 8 9 10 11 12 14 16 18 20 24 28 32 36 42 48 56 60 72)
+family=miscmono
+fonts=(Inconsolata-Bold  Inconsolata-Regular  KernelPanic  Monoid  Pennstat  Repetition)
 
+# sizes=(6 7 8 9 10 11 12 14 16 18 20 24 28 32 36 42 48 56 60 72)
+sizes=(32 36 42 48)
 convert=./fontconvert
-inpath=/usr/share/fonts/truetype/${family}
+inpath=${HOME}/Downloads/fonts
 outdir=${HOME}/Arduino/libraries/${family}fonts
 outpath=${outdir}/fonts
 outdoth=${outdir}/${family}.h
