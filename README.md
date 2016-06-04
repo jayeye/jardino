@@ -2,8 +2,15 @@
 
 ## Contents
 
-[`libard`](libard) contains Arduino-style libraries. The `library.properties`
-file may restrict the architecture for which the libary is good for.
+[`libard`](libard) contains Arduino-style libraries. The
+`library.properties` file may restrict the architecture for which the
+libary is good for.  To install any of these libraries, make symlinks
+from your `~/Arduino/libraries` directory to each directory under
+`libard
+
+Unit tests, where present, usually expect  [googletest](https://github.com/google/googletest).
+
+
 
 [`arduino`](arduino) Generic Arduino sketches, should work on most variants.
 
@@ -12,3 +19,11 @@ file may restrict the architecture for which the libary is good for.
 
 [`esp8266`](esp8266) Stuff that only works on the ESP8266, only tested on the
 [Adafruit HUZZAH](https://www.adafruit.com/products/2471) module.
+
+
+Depending on their intended use, I usually test against these boards:
+
+* [Teensy 3.1](https://www.pjrc.com/store/teensy31.html). _Will also probably work on the Teensy 3LC and the 3.2._
+* [DigiSpark](http://digistump.com/category/1). _Will also probably work with the Adafruit Trinket._
+* [Huzzah 8266](https://www.adafruit.com/product/2471). _Will also probably work with other 8266-based boards._
+
