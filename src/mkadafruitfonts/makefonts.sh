@@ -2,12 +2,22 @@
 
 # Hacked from https://github.com/adafruit/Adafruit-GFX-Library/blob/master/fontconvert/makefonts.sh
 
-family=droid
-fonts=(DroidSerif-Regular DroidSerif-Italic DroidSerif-Bold DroidSerif-BoldItalic DroidSans DroidSans-Bold DroidSansMono)
+family=googlefonts
+
+fonts=(
+RobotoMono-BoldItalic RobotoMono-LightItalic RobotoMono-Medium
+RobotoMono-Thin RobotoMono-Bold RobotoMono-Light RobotoMono-Regular
+RobotoMono-Italic RobotoMono-MediumItalic RobotoMono-ThinItalic
+UbuntuMono-BoldItalic UbuntuMono-Regular UbuntuMono-Bold
+UbuntuMono-Italic
+)
+
+
+
 sizes=(6 7 8 9 10 11 12 14 16 18 20 24 28 32 36 42 48 56 60 72)
 
 convert=./fontconvert
-inpath=/usr/share/fonts/truetype/${family}
+inpath=/home/ji/workspace/google-fonts/
 outdir=${HOME}/Arduino/libraries/${family}fonts
 outpath=${outdir}/fonts
 outdoth=${outdir}/${family}.h
@@ -19,11 +29,11 @@ outdotcpp=${outdir}/${family}.cpp
 rm -f ${outdoth} ${outdotcpp} ${outdotcpp_externs} ${outdotcpp_includes}
 mkdir -p ${outpath}
 
-printf "#include <Adafruit_GFX.h>\n\n" > ${outdoth}
+printf "#include <Adafruit_GFX.h>\n\n#ifdef INCLUDE_IF_ADEQUATE_MEMORY\n\n" > ${outdoth}
 for fontname in ${fonts[*]}; do
-  for size in ${sizes[*]}; do
-    infile="${inpath}/${fontname}.ttf"
-    if [ -f ${infile} ]; then
+  infile=$(find ${inpath} -name ${fontname}.ttf)
+  if [ -f ${infile} ]; then
+    for size in ${sizes[*]}; do
       outfilebase="${fontname}-${size}-7b.h"
       outfile=${outpath}/${outfilebase}
       # printf "%s %s %s > %s\n" $convert $infile $si $outfile
@@ -34,16 +44,18 @@ for fontname in ${fonts[*]}; do
       printf "extern const GFXfont ${gfxname};\n" >>  ${outdotcpp_externs}
       printf "extern const GFXfont* ${ptrname};\n" >> ${outdoth}
       printf "const GFXfont* ${ptrname} = &${gfxname};\n" >> ${outdotcpp_decls}
-    fi
-  done
+    done
+  fi
 done
+printf "\n#endif\n" >> ${outdoth}
 
-printf "#include <Adafruit_GFX.h>\n\n" > ${outdotcpp}
+printf "#include <Adafruit_GFX.h>\n\n#ifdef INCLUDE_IF_ADEQUATE_MEMORY\n\n" > ${outdotcpp}
 cat ${outdotcpp_includes} >> ${outdotcpp}
 echo >> ${outdotcpp}
 cat ${outdotcpp_externs} >> ${outdotcpp}
 echo >> ${outdotcpp}
 cat ${outdotcpp_decls} >> ${outdotcpp}
+echo '#endif' >> ${outdotcpp}
 rm -f ${outdotcpp_decls} ${outdotcpp_externs} ${outdotcpp_includes}
 
 cat > ${outdir}/library.properties <<EOF
