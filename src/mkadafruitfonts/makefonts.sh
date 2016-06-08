@@ -2,10 +2,11 @@
 # Hacked from https://github.com/adafruit/Adafruit-GFX-Library/blob/master/fontconvert/makefonts.sh
 
 family=miscmono
-fonts=(Inconsolata-Bold  Inconsolata-Regular  KernelPanic  Monoid  Pennstat  Repetition)
+# fonts=(Inconsolata-Bold  Inconsolata-Regular  KernelPanic  Monoid  Pennstat  Repetition)
+fonts=(Inconsolata-Bold  Inconsolata-Regular)
 
-# sizes=(6 7 8 9 10 11 12 14 16 18 20 24 28 32 36 42 48 56 60 72)
-sizes=(32 36 42 48)
+sizes=(6 7 8 9 10 11 12 14 16 18 20 24 28 32 36 42 48 56 60 72)
+# sizes=(32 36 42 48)
 convert=./fontconvert
 inpath=${HOME}/Downloads/fonts
 outdir=${HOME}/Arduino/libraries/${family}fonts
