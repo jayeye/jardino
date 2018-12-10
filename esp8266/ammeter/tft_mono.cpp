@@ -8,6 +8,16 @@ TFT_Mono::TFT_Mono(uint8_t cspin, uint8_t dcpin, uint8_t rstpin) :
   TFT_ILI9163C(cspin, dcpin, rstpin) {
 }
 
+
+template <typename T1, typename T2>
+inline T2 mmin(T1 a, T2 b) {
+  return (a < b) ? a : b;
+}
+
+template <typename T1, typename T2>
+inline T2 mmax(T1 a, T2 b) {
+  return (a > b) ? a : b;
+}
 void  TFT_Mono::setFont(const GFXfont *f) {
   Adafruit_GFX::setFont(f);
   is_monospaced_ = true;
@@ -33,10 +43,10 @@ void  TFT_Mono::setFont(const GFXfont *f) {
       Serial.println(i);
       return;
     }
-    x_min_ = min(x_min_, xoffset_i);
-    x_max_ = max(x_max_, xoffset_i + width_i);
-    y_min_ = min(y_min_, yoffset_i);
-    y_max_ = max(y_max_, yoffset_i + height_i);
+    x_min_ = mmin(x_min_, xoffset_i);
+    x_max_ = mmax(x_max_, xoffset_i + width_i);
+    y_min_ = mmin(y_min_, yoffset_i);
+    y_max_ = mmax(y_max_, yoffset_i + height_i);
   }
   y_advance_ = pgm_read_byte(&f->yAdvance);
 }
