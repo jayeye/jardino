@@ -1,9 +1,0 @@
-SmartNixieClass	KEYWORD1
-SmartNixie	KEYWORD1
-
-begin	KEYWORD2
-dp	KEYWORD2
-put	KEYWORD2
-blank	KEYWORD2
-cylon	KEYWORD2
-ssid	KEYWORD2
