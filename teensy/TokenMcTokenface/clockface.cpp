@@ -1,9 +1,11 @@
 #include "clockface.h"
 #include "display.h"
 #include "droid.h"
+#include "miscmono.h"
 #include <Arduino.h>
 #include <Adafruit_GFX.h>
-#include <Adafruit_ILI9341.h>
+//#include <Adafruit_ILI9341.h>
+#include <ILI9341_t3.h>
 #include <Time.h>
 
 
@@ -49,19 +51,19 @@ void drawClockHands(time_t t, bool draw_seconds) {
   sdeg = s * 6;                  // 0-59 -> 0-354
   mdeg = m * 6 + sdeg * 0.01666667;  // 0-59 -> 0-360 - includes seconds
   hdeg = h * 30 + mdeg * 0.0833333;  // 0-11 -> 0-360 - includes minutes and seconds
-  hx = cos((hdeg - 90) * scosConst);    
+  hx = cos((hdeg - 90) * scosConst);
   hy = sin((hdeg - 90) * scosConst);
-  mx = cos((mdeg - 90) * scosConst);    
+  mx = cos((mdeg - 90) * scosConst);
   my = sin((mdeg - 90) * scosConst);
-  sx = cos((sdeg - 90) * scosConst);    
+  sx = cos((sdeg - 90) * scosConst);
   sy = sin((sdeg - 90) * scosConst);
   // Erase just old hand positions
-  tft->drawLine(ohx, ohy, ccenterx+1, ccentery+1, ILI9341_BLACK);  
-  tft->drawLine(omx, omy, ccenterx+1, ccentery+1, ILI9341_BLACK);  
+  tft->drawLine(ohx, ohy, ccenterx+1, ccentery+1, ILI9341_BLACK);
+  tft->drawLine(omx, omy, ccenterx+1, ccentery+1, ILI9341_BLACK);
   if (draw_seconds) {
     tft->drawLine(osx, osy, ccenterx+1, ccentery+1, ILI9341_BLACK);
   }
-  // Draw new hand positions  
+  // Draw new hand positions
   tft->drawLine(hx * (cradius - 28) + ccenterx + 1,
                 hy * (cradius - 28) + ccentery + 1,
                 ccenterx + 1,
@@ -112,7 +114,7 @@ void clock_poll(time_t t, bool draw_seconds) {
     return;
   }
   // Largest font that fits; test with "Wednesday, September 31st, 2016"
-  tft->setFont(DroidSans_10);
+  tft->setFont(DroidSans_12);
   d->jshow(previous.c_str(), d->width() / 2, d->height() - 1,
            Display::CENTER_JUSTIFY, Display::BOTTOM_JUSTIFY,
            ILI9341_BLACK, ILI9341_BLACK);
