@@ -1,14 +1,12 @@
-# Embedded stuff
+# Contents
 
-## Contents
-
-[`libard`](libard) contains Arduino-style libraries. The
-`library.properties` file may restrict the architecture for which the
+## [`libard`](libard)
+contains Arduino-style libraries. The`library.properties` file may restrict the architecture for which the
 libary is good for.  To install any of these libraries, make symlinks
 from your `~/Arduino/libraries` directory to each directory under
-`libard
+`libard`.
 
-Unit tests, where present, usually expect  [googletest](https://github.com/google/googletest).
+Unit tests, where present, usually expect [googletest](https://github.com/google/googletest).
 
 
 
@@ -23,7 +21,6 @@ Unit tests, where present, usually expect  [googletest](https://github.com/googl
 
 Depending on their intended use, I usually test against these boards:
 
-* [Teensy 3.1](https://www.pjrc.com/store/teensy31.html). _Will also probably work on the Teensy 3LC and the 3.2._
+* [Teensy 3.2](https://www.pjrc.com/store/teensy32.html). _Will also probably work on other Teensy 3.* modules.
 * [DigiSpark](http://digistump.com/category/1). _Will also probably work with the Adafruit Trinket._
 * [Huzzah 8266](https://www.adafruit.com/product/2471). _Will also probably work with other 8266-based boards._
-
