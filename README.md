@@ -31,3 +31,21 @@
 * [`digispark`](digispark) Stuff based on the
   original [DigiSpark](http://digistump.com/category/1). _May also
   work with the Adafruit Trinket or other ATMicro85 boards._
+
+* [`kicad`](kicad) Stuff you may find useful if you use the [KiCad EDA](http://kicad-pcb.org) _(They do not understand the concept of https)_
+
+# Licenses'n'things
+
+* Anything here that is entirely mine feel free to use with some
+  appropriate attribution. If you find it useful, tell me, or buy me a
+  beer when and if we meet. If you make changes, be nice and say who
+  you got the original from. If you manage to make money out of it, it
+  would be nice to give me a cut, but I have no way of enforcing
+  that. The open-source world will be a lot better if we can keep the
+  lawyers out of it by playing fair.
+
+* Not everything here is entirely my own writing. Whenever I have used
+  other people's work, I have tried to give proper attribution. If I
+  have missed something, please submit
+  an [issue](https://github.com/jayeye/jardino/issues) and I will fix
+  the problem as soon as I can.
