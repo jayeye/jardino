@@ -1,6 +1,6 @@
 # Contents
 
-## [`libard`](libard)
+* [`libard`](libard)
 contains Arduino-style libraries. The`library.properties` file may restrict the architecture for which the
 libary is good for.  To install any of these libraries, make symlinks
 from your `~/Arduino/libraries` directory to each directory under
