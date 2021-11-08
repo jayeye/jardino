@@ -32,7 +32,7 @@
   original [DigiSpark](http://digistump.com/category/1). _May also
   work with the Adafruit Trinket or other ATMicro85 boards._
 
-* [`kicad`](kicad) Stuff you may find useful if you use the [KiCad EDA](http://kicad-pcb.org) _(They do not understand the concept of https)_
+* [`kicad`](kicad) Stuff you may find useful if you use the [KiCad EDA](https://kicad.org)
 
 # Licenses'n'things
 
